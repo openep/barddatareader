@@ -39,10 +39,14 @@ function loadBardFile(hB)
         [~, w] = unix('vm_stat | grep Pages');
         stats = regexp(w, '[0-9]*', 'match');
         maxBytes = floor( (str2double(stats{1})*4096) / 10 );
+    elseif strcmp(computer, 'MACA64')
+        [~, w] = unix('vm_stat | grep Pages');
+        stats = regexp(w, '[0-9]*', 'match');
+        maxBytes = floor( (str2double(stats{1})*4096) / 10 );
     else
         error('LOADBARDFILE: Unrecognised platform');
     end
-    
+
     s = dir(hB.FileName);
     filesize = s.bytes;
     

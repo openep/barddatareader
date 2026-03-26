@@ -29,6 +29,7 @@ classdef BardFile  < hgsetget
         ChRange = [];
         ChLow = [];
         ChHigh = [];
+        System = [];
     end
     properties (Access = 'private')
         PrivateStimIndices = [];
